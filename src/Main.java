@@ -34,22 +34,22 @@ class Register {
         int count = 0;
         while (amt > 0.0001) {
             if (amt >= hundredDollar.amt()) {
-                purse.add(hundredDollar, count += 1);
+                purse.add(hundredDollar, 1);
                 amt -= hundredDollar.amt();
             } else if (amt < hundredDollar.amt() && amt >= fiftyDollar.amt()) {
-                purse.add(fiftyDollar, count += 1);
+                purse.add(fiftyDollar, 1);
                 amt -= fiftyDollar.amt();
             } else if (amt < fiftyDollar.amt() && amt >= twentyDollar.amt()) {
-                purse.add(twentyDollar, count += 1);
+                purse.add(twentyDollar, 1);
                 amt -= twentyDollar.amt();
             } else if (amt < twentyDollar.amt() && amt >= tenDollar.amt()) {
-                purse.add(tenDollar, count += 1);
+                purse.add(tenDollar, 1);
                 amt -= tenDollar.amt();
             } else if (amt < tenDollar.amt() && amt >= fiveDollar.amt()) {
-                purse.add(fiveDollar, count += 1);
+                purse.add(fiveDollar, 1);
                 amt -= fiveDollar.amt();
             } else if (amt < fiveDollar.amt() && amt >= oneDollar.amt()) {
-                purse.add(oneDollar, count += 1);
+                purse.add(oneDollar, 1);
                 amt -= oneDollar.amt();
             }
         }

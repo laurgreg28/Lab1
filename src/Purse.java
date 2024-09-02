@@ -6,7 +6,14 @@ public class Purse {
 
 
     public void add(Denomination money_type, int num) {
-        cash.put(money_type, num);
+        if (!cash.containsKey(money_type)) {
+            cash.put(money_type, num);
+        }
+        else {
+            cash.put(money_type, cash.get(money_type) + num);
+        }
+
+
     }
     //public double remove(Denomination money_type, int num) {
       //  cash.remove(money_type, num-1);
