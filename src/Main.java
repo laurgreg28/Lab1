@@ -25,7 +25,8 @@ class Register {
         System.out.println("How much money do you have? ");
         Scanner scan = new Scanner(System.in);
         double amt = scan.nextDouble();
-        register.makeChange(amt);
+        Purse p = register.makeChange(amt);
+        System.out.println(p.toString());
     }
 
     public Purse makeChange(double amt) {
