@@ -27,6 +27,7 @@ class Register {
         double amt = scan.nextDouble();
         Purse p = register.makeChange(amt);
         System.out.println(p.toString());
+        System.out.println("Total: " + p.getValue());
     }
 
     public Purse makeChange(double amt) {

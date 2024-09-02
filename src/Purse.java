@@ -19,9 +19,14 @@ public class Purse {
       //  cash.remove(money_type, num-1);
     //}
 
-    //public double getValue() {
-      //  return amt;
-   // }
+    public double getValue() {
+      //multiply the number of money times the money value
+        double total = 0;
+        for (Denomination money : cash.keySet()) {
+            total += cash.get(money) * money.amt();
+        }
+        return total;
+    }
 
     public String toString() {
         String result = "Money in purse\n--------------------\n";
