@@ -15,9 +15,12 @@ public class Purse {
 
 
     }
-    //public double remove(Denomination money_type, int num) {
-      //  cash.remove(money_type, num-1);
-    //}
+    public double remove(Denomination money_type, int num) {
+        int current_count = cash.get(money_type);
+        double removed_amt = money_type.amt()*num;
+        cash.put(money_type,current_count-num);
+        return removed_amt;
+    }
 
     public double getValue() {
       //multiply the number of money times the money value
@@ -30,6 +33,8 @@ public class Purse {
 
     public String toString() {
         String result = "Money in purse\n--------------------\n";
+        if (cash.isEmpty())
+            return "Empty purse";
         for (HashMap.Entry<Denomination, Integer> entry : cash.entrySet()) {
             result += entry.getValue() + " " + entry.getKey().name() + "\n";
         }

@@ -9,6 +9,10 @@ class Register {
     Denomination tenDollar;
     Denomination fiveDollar;
     Denomination oneDollar;
+    Denomination quarter;
+    Denomination dime;
+    Denomination nickel;
+    Denomination penny;
 
     public Register() {
         hundredDollar = new Denomination("Hundred-Dollar Note", 100.00, "bill");
@@ -17,10 +21,13 @@ class Register {
         tenDollar = new Denomination("Ten-Dollar Note", 10.00, "bill");
         fiveDollar = new Denomination("Five-Dollar Note", 5.00, "bill");
         oneDollar = new Denomination("One-Dollar Note", 1.00, "bill");
+        quarter = new Denomination("Quarter", 0.25, "coin");
+        dime = new Denomination("Dime", 0.10, "coin");
+        nickel = new Denomination("Nickel", 0.05, "coin");
+        penny = new Denomination("Penny", 0.01, "coin");
     }
     public static void main(String[] args) {
         Register register = new Register();
-        System.out.println(register.hundredDollar);
 
         System.out.println("How much money do you have? ");
         Scanner scan = new Scanner(System.in);
@@ -32,7 +39,6 @@ class Register {
 
     public Purse makeChange(double amt) {
         Purse purse = new Purse();
-        int count = 0;
         while (amt > 0.0001) {
             if (amt >= hundredDollar.amt()) {
                 purse.add(hundredDollar, 1);
@@ -53,6 +59,25 @@ class Register {
                 purse.add(oneDollar, 1);
                 amt -= oneDollar.amt();
             }
+            else if (amt < oneDollar.amt() && amt >= quarter.amt()) {
+                purse.add(quarter, 1);
+                amt -= quarter.amt();
+            }
+            else if (amt < quarter.amt() && amt >= dime.amt()) {
+                purse.add(dime, 1);
+                amt -= dime.amt();
+            }
+            else if (amt < dime.amt() && amt >= nickel.amt()) {
+                purse.add(nickel, 1);
+                amt -= nickel.amt();
+            }
+            else {
+                purse.add(penny, 1);
+                amt -= penny.amt();
+            }
+
+
+
         }
         return purse;
     }
