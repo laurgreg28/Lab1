@@ -32,13 +32,13 @@ public class Purse {
     }
 
     public String toString() {
-        String result = "Money in purse\n--------------------\n";
+        StringBuilder result = new StringBuilder("Money in purse\n--------------------\n");
         if (cash.isEmpty())
             return "Empty purse";
         for (HashMap.Entry<Denomination, Integer> entry : cash.entrySet()) {
-            result += entry.getValue() + " " + entry.getKey().name() + "\n";
+            result.append(entry.getValue()).append(" ").append(entry.getKey().name()).append("\n");
         }
-        return result;
+        return result.toString();
 
     }
 

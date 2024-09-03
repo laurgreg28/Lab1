@@ -1,6 +1,3 @@
-
-
-import java.util.ArrayList;
 import java.util.Scanner;
 class Register {
     Denomination hundredDollar;
@@ -43,31 +40,31 @@ class Register {
             if (amt >= hundredDollar.amt()) {
                 purse.add(hundredDollar, 1);
                 amt -= hundredDollar.amt();
-            } else if (amt < hundredDollar.amt() && amt >= fiftyDollar.amt()) {
+            } else if (amt >= fiftyDollar.amt()) {
                 purse.add(fiftyDollar, 1);
                 amt -= fiftyDollar.amt();
-            } else if (amt < fiftyDollar.amt() && amt >= twentyDollar.amt()) {
+            } else if (amt >= twentyDollar.amt()) {
                 purse.add(twentyDollar, 1);
                 amt -= twentyDollar.amt();
-            } else if (amt < twentyDollar.amt() && amt >= tenDollar.amt()) {
+            } else if (amt >= tenDollar.amt()) {
                 purse.add(tenDollar, 1);
                 amt -= tenDollar.amt();
-            } else if (amt < tenDollar.amt() && amt >= fiveDollar.amt()) {
+            } else if (amt >= fiveDollar.amt()) {
                 purse.add(fiveDollar, 1);
                 amt -= fiveDollar.amt();
-            } else if (amt < fiveDollar.amt() && amt >= oneDollar.amt()) {
+            } else if (amt >= oneDollar.amt()) {
                 purse.add(oneDollar, 1);
                 amt -= oneDollar.amt();
             }
-            else if (amt < oneDollar.amt() && amt >= quarter.amt()) {
+            else if (amt >= quarter.amt()) {
                 purse.add(quarter, 1);
                 amt -= quarter.amt();
             }
-            else if (amt < quarter.amt() && amt >= dime.amt()) {
+            else if (amt >= dime.amt()) {
                 purse.add(dime, 1);
                 amt -= dime.amt();
             }
-            else if (amt < dime.amt() && amt >= nickel.amt()) {
+            else if (amt >= nickel.amt()) {
                 purse.add(nickel, 1);
                 amt -= nickel.amt();
             }
