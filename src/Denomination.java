@@ -1,1 +1,3 @@
-public record Denomination(String name, double amt, String form) {}
+public record Denomination(String name, double amt, String form, String img) {
+
+}

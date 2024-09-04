@@ -12,25 +12,25 @@ class Register {
     Denomination penny;
 
     public Register() {
-        hundredDollar = new Denomination("Hundred-Dollar Note", 100.00, "bill");
-        fiftyDollar = new Denomination("Fifty-Dollar Note", 50.00, "bill");
-        twentyDollar = new Denomination("Twenty-Dollar Note", 20.00, "bill");
-        tenDollar = new Denomination("Ten-Dollar Note", 10.00, "bill");
-        fiveDollar = new Denomination("Five-Dollar Note", 5.00, "bill");
-        oneDollar = new Denomination("One-Dollar Note", 1.00, "bill");
-        quarter = new Denomination("Quarter", 0.25, "coin");
-        dime = new Denomination("Dime", 0.10, "coin");
-        nickel = new Denomination("Nickel", 0.05, "coin");
-        penny = new Denomination("Penny", 0.01, "coin");
+        hundredDollar = new Denomination("Hundred-Dollar Note", 100.00, "bill", "hundred_note.png");
+        fiftyDollar = new Denomination("Fifty-Dollar Note", 50.00, "bill", "fifty_note.png");
+        twentyDollar = new Denomination("Twenty-Dollar Note", 20.00, "bill", "twenty_note.png");
+        tenDollar = new Denomination("Ten-Dollar Note", 10.00, "bill", "ten_note.png");
+        fiveDollar = new Denomination("Five-Dollar Note", 5.00, "bill", "five_note.png");
+        oneDollar = new Denomination("One-Dollar Note", 1.00, "bill", "one_note.png");
+        quarter = new Denomination("Quarter", 0.25, "coin", "quarter.png");
+        dime = new Denomination("Dime", 0.10, "coin", "dime.png");
+        nickel = new Denomination("Nickel", 0.05, "coin", "nickel.png");
+        penny = new Denomination("Penny", 0.01, "coin", "penny.png");
     }
     public static void main(String[] args) {
         Register register = new Register();
 
-        System.out.println("How much money do you have? ");
+        System.out.println("Please enter the amount of money? ");
         Scanner scan = new Scanner(System.in);
         double amt = scan.nextDouble();
         Purse p = register.makeChange(amt);
-        System.out.println(p.toString());
+        System.out.println("Money in purse\n--------------------\n" + p.toString());
         System.out.println("Total: " + p.getValue());
     }
 
