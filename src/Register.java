@@ -1,5 +1,9 @@
+//Creates a register and takes an amount to return a purse
+
 import java.util.Scanner;
+
 class Register {
+    //Declare Denominations
     Denomination hundredDollar;
     Denomination fiftyDollar;
     Denomination twentyDollar;
@@ -11,6 +15,7 @@ class Register {
     Denomination nickel;
     Denomination penny;
 
+    //Initialize Denominations
     public Register() {
         hundredDollar = new Denomination("Hundred-Dollar Note", 100.00, "bill", "hundred_note.png");
         fiftyDollar = new Denomination("Fifty-Dollar Note", 50.00, "bill", "fifty_note.png");
@@ -23,19 +28,26 @@ class Register {
         nickel = new Denomination("Nickel", 0.05, "coin", "nickel.png");
         penny = new Denomination("Penny", 0.01, "coin", "penny.png");
     }
+    //Asks for amount and print the money
     public static void main(String[] args) {
         Register register = new Register();
 
         System.out.println("Please enter the amount of money? ");
         Scanner scan = new Scanner(System.in);
         double amt = scan.nextDouble();
-        Purse p = register.makeChange(amt);
+
+
+        Purse p = register.makeChange(amt); //returns money in the purse
+
         System.out.println("Money in purse\n--------------------\n" + p.toString());
         System.out.println("Total: " + p.getValue());
     }
 
+    //Finds number of each denomination and returns purse
     public Purse makeChange(double amt) {
         Purse purse = new Purse();
+
+        //Adds denomination to purse and subtracts that amount to find minimum number bills/coins
         while (amt > 0.0001) {
             if (amt >= hundredDollar.amt()) {
                 purse.add(hundredDollar, 1);
@@ -72,10 +84,8 @@ class Register {
                 purse.add(penny, 1);
                 amt -= penny.amt();
             }
-
-
-
         }
+
         return purse;
     }
 
