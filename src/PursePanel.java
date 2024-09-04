@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
@@ -12,40 +10,33 @@ public class PursePanel extends JPanel {
     }
     public void setPurse(Purse purse) {
         this.purse = purse;
-        repaint();
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int x = 100;
-        int y = 100;
+        int x = 0;
+        int y = 20;
         if (purse == null) {
             return;
         }
 
 
         for (HashMap.Entry<Denomination, Integer> entry : purse.cash.entrySet()) {
-            Denomination denom = entry.getKey();
+            Denomination money = entry.getKey();
             int count = entry.getValue();
-            ImageIcon icon= new ImageIcon(getClass().getResource(denom.img()));
+            ImageIcon icon= new ImageIcon(getClass().getResource(money.img()));
             Image image = icon.getImage();
+            int width = icon.getIconWidth();
             for (int i = 0; i < count; i++) {
                 g.drawImage(image, x, y, this);
-                x += 200;
+                y += 30;
             }
-
+            x += 100;
+            y = 20;
 
         }
-
-
         repaint();
 
 
     }
 }
-
-//String purseContents = purse.toString();
-// String[] purseContents = purse.toString().split("\n");
-//System.out.println("paintComponent called");
-//for (String line: purseContents) {
-//  g.drawString(line, x, y);

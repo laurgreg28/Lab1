@@ -17,18 +17,16 @@ public class RegisterPanel extends JPanel {
         input = new JTextField(10);
         changePanel = new PursePanel();
         inputLabel = new JLabel("Please enter the amount of money: ");
-        //changeLabel = new JLabel();
         input.addActionListener(new InputListener());
 
         inputPanel.add(inputLabel);
         inputPanel.add(input);
         this.add(inputPanel);
         this.add(changePanel);
+
         this.setLayout(new BorderLayout());
         this.add(inputPanel, BorderLayout.NORTH);
         this.add(changePanel, BorderLayout.CENTER);
-        changePanel.revalidate();
-        changePanel.repaint();
 
 
     }
@@ -36,19 +34,20 @@ public class RegisterPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 double amount = Double.parseDouble(input.getText());
                 inputLabel.setText("$" + amount);
+
+                if (amount <= 0)
+                    inputLabel.setText("Empty Purse.");
+
                 Purse purse = register.makeChange(amount);
 
-                inputPanel.setPreferredSize(new Dimension(600, 800));
+                inputPanel.setPreferredSize(new Dimension(800, 800));
                 inputPanel.setBackground(Color.BLUE);
-                changePanel.setPreferredSize(new Dimension(700, 500));
+                changePanel.setPreferredSize(new Dimension(900, 800));
                 changePanel.setBackground(Color.BLACK);
 
 
-                //inputPanel.add(changeLabel);
-
 
                 changePanel.setPurse(purse);
-
                 inputPanel.add(changePanel);
 
 
@@ -57,12 +56,4 @@ public class RegisterPanel extends JPanel {
             }
         }
 
-
-
 }
-//ImageIcon coinIcon = new ImageIcon(getClass().getResource(register.penny.img()));
-//inputLabel.setText("$" + amount);
-//inputPanel.add(coinLabel);
-//inputPanel.revalidate();
-//inputPanel.repaint();
-//changePanel.repaint();

@@ -1,7 +1,8 @@
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Purse {
-    HashMap<Denomination, Integer> cash = new HashMap<Denomination,Integer>();
+    LinkedHashMap<Denomination, Integer> cash = new LinkedHashMap<Denomination,Integer>();
 
 
 
